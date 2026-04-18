@@ -1,0 +1,35 @@
+CREATE DATABASE IF NOT EXISTS bookstore_db;
+USE bookstore_db;
+
+-- USERS
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    phone VARCHAR(10) NOT NULL,
+    email VARCHAR(150) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- BOOKS
+CREATE TABLE books (
+    book_id INT AUTO_INCREMENT PRIMARY KEY,
+    category VARCHAR(50) NOT NULL,
+    subcategory VARCHAR(50) NOT NULL,
+    title VARCHAR(100) NOT NULL,
+    price DECIMAL(6,2) NOT NULL,
+    image VARCHAR(255)
+);
+
+-- ORDERS
+CREATE TABLE orders (
+    order_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(150) NOT NULL,
+    phone VARCHAR(10) NOT NULL,
+    book_id INT NOT NULL,
+    book_title VARCHAR(100) NOT NULL,
+    price DECIMAL(6,2) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
